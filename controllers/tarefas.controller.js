@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const getTarefas = async (req, res) => {
     const tarefa = await tarefasService.getTarefas();
-    res.send(tarefa); // Joga no front...
+    res.send(tarefa);
 };
 
 const getTarefaById = async (req, res) => {
