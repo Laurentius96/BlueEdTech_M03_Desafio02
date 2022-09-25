@@ -8,16 +8,11 @@ const mongoose = require("mongoose");
 /**
  * 6°) Declarando uma função para ser a função de conexão
  *       Url da conexao = mongodb://servidor:porta/ => mongodb://localhost:27017/
- *
- * mongodb://localhost:27017/lista
- *
  *       userNewUrlParser = fala pro mongoDB trabalhar com o novo sistema de Url
  */
-const Conn = (url, user, pass, data) => {
+const Conn = () => {
   mongoose
-    .connect(`${url}/${data}`, {
-      user: user,
-      pass: pass,
+    .connect("mongodb://localhost:27017/lista", {
       useNewUrlParser: true,
     })
     .then(() => {
@@ -30,4 +25,3 @@ const Conn = (url, user, pass, data) => {
 
 // 7°) Exporto a função de conexão
 module.exports = Conn;
-
