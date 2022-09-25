@@ -1,0 +1,26 @@
+// 20°) Importando os métodos do Expresspara chamr as rotas...
+const express = require("express");
+
+// 21°) Para usar os métodos do controllers...
+const tarefasController = require("../controllers/tarefas.controller");
+
+// 22°) Inicializar o módulo de rotas...
+const router = express.Router();
+
+// 23°) Criando o EndPoint [GET] /tarefas - retorna uma lista de tarefas pré cadastrados no banco...
+router.get("/get-tarefas", tarefasController.getTarefas);
+
+// 29°) [GET] /get-tarefas-id/{id} - retorna um game de acordo com seu id
+router.get("/get-tarefa-id/:id", tarefasController.getTarefaById);
+
+// 34°) [POST] /tarefa/add - Cadastra uma nova tarefa no banco de dados...
+router.post("/create", tarefasController.createTarefa);
+
+// 38°) [PUT] /tarefas/edit/{id} - Edia os dados da tarefa de acordo com o o id e o objeto recebido...
+router.put("/edit/:id", tarefasController.editTarefa);
+
+// 41°) [DELETE] /tarefas/delete - Exclui um game do banco de dados de acordo com o ID...
+router.delete("/delete/:id", tarefasController.deleteTarefa);
+
+// 24°) Exportando o módulop de rotas...
+module.exports = router;
